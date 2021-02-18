@@ -858,6 +858,27 @@ class Simulator {
       const assets::AssetInfo& assetInfo,
       const assets::RenderAssetInstanceCreationInfo& creation);
 
+  /**
+   * @brief
+   */
+  std::vector<vec3f> getVertices(int id) {
+    return resourceManager_->getVertices(id);
+  }
+
+  /**
+   * @brief
+   */
+  std::vector<uint16_t> getObjectIds(int id){
+    return resourceManager_->getObjectIds(id);
+  }
+
+  /**
+   * @brief
+   */
+  std::vector<int> getMeshKeys() {
+    return resourceManager_->getMeshKeys();
+  }
+
  protected:
   Simulator(){};
   /**

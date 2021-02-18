@@ -30,6 +30,7 @@
 #include "GenericMeshData.h"
 #include "MeshData.h"
 #include "MeshMetaData.h"
+#include "GenericInstanceMeshData.h"
 #include "RenderAssetInstanceCreationInfo.h"
 #include "esp/gfx/Drawable.h"
 #include "esp/gfx/DrawableGroup.h"
@@ -250,6 +251,55 @@ class ResourceManager {
   getStageAttributesManager() const {
     return metadataMediator_->getStageAttributesManager();
   }
+
+  /**
+   * @brief
+   */
+  std::vector<std::vector<vec3f>> getVertices() {
+    std::vector<std::vector<vec3f>> r;
+    for (auto const& m : meshes_){
+      auto id = m.first;
+      printf("Getting mesh number %d\n", id);
+      auto mesh = m.second;
+      const std::vector<vec3f> vertexPositions =
+            dynamic_cast<GenericInstanceMeshData&>(*mesh)
+                .getVertexBufferObjectCPU();
+      r.push_back(vertexPositions);
+    }
+    return r;
+  }
+
+  /**
+   * @brief
+   */
+  std::vector<vec3f> getVertices(int id) {
+    const std::vector<vec3f> vertexPositions =
+          dynamic_cast<GenericInstanceMeshData&>(*meshes_.at(id))
+              .getVertexBufferObjectCPU();
+    return vertexPositions;
+  }
+
+  /**
+   * @brief
+   */
+  std::vector<uint16_t> getObjectIds(int id) {
+    const std::vector<uint16_t> objIds =
+          dynamic_cast<GenericInstanceMeshData&>(*meshes_.at(id))
+              .getObjectIdsBufferObjectCPU();
+    return objIds;
+  }
+
+   /**
+    * @brief
+    */
+   std::vector<int> getMeshKeys() {
+     std::vector<int> r;
+     for (auto const& m : meshes_){
+       auto id = m.first;
+       r.push_back(id);
+     }
+     return r;
+   }
 
   /**
    * @brief Set a reference to the current @ref metadataMediator_.  Perform any

@@ -52,7 +52,6 @@
 #endif
 
 #include "CollisionMeshData.h"
-#include "GenericInstanceMeshData.h"
 #include "GenericMeshData.h"
 #include "MeshData.h"
 
