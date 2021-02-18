@@ -327,7 +327,19 @@ void initSimBindings(py::module& m) {
       .def(
           "get_num_active_contact_points",
           &Simulator::getNumActiveContactPoints,
-          R"(The number of contact points that were active during the last step. An object resting on another object will involve several active contact points. Once both objects are asleep, the contact points are inactive. This count can be used as a metric for the complexity/cost of collision-handling in the current scene.)");
+          R"(The number of contact points that were active during the last step. An object resting on another object will involve several active contact points. Once both objects are asleep, the contact points are inactive. This count can be used as a metric for the complexity/cost of collision-handling in the current scene.)")
+      .def("get_vertices",
+           &Simulator::getVertices,
+           pybind11::return_value_policy::reference,
+           R"()")
+      .def("get_object_ids",
+           &Simulator::getObjectIds,
+           pybind11::return_value_policy::reference,
+           R"()")
+      .def("get_mesh_keys",
+           &Simulator::getMeshKeys,
+           pybind11::return_value_policy::reference,
+           R"()")
   ;
 }
 
