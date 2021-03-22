@@ -286,7 +286,7 @@ class ResourceManager {
       // It is an instance mesh and it is possible to return the vertex data
       const GenericInstanceMeshData& instMesh =
           dynamic_cast<GenericInstanceMeshData&>(mesh);
-      const std::vector<vec3f> vertexPositions =
+      std::vector<vec3f> vertexPositions =
           instMesh.getVertexBufferObjectCPU();
       return vertexPositions;
 
@@ -307,7 +307,7 @@ class ResourceManager {
       // It is an instance mesh and it is possible to return the vertex data
       const GenericInstanceMeshData& instMesh =
           dynamic_cast<GenericInstanceMeshData&>(mesh);
-      const std::vector<uint32_t> surfIndexes =
+      std::vector<uint32_t> surfIndexes =
           instMesh.getIndexBufferObjectCPU();
       return surfIndexes;
 
@@ -327,7 +327,7 @@ class ResourceManager {
       // It is an instance mesh and it is possible to return the vertex data
       const GenericInstanceMeshData& instMesh =
           dynamic_cast<GenericInstanceMeshData&>(mesh);
-      const std::vector<vec3uc> colors = instMesh.getColorBufferObjectCPU();
+      std::vector<vec3uc> colors = instMesh.getColorBufferObjectCPU();
       return colors;
 
     } else {
@@ -350,7 +350,7 @@ class ResourceManager {
       // It is an instance mesh and it is possible to return the vertex data
       const GenericInstanceMeshData& instMesh =
           dynamic_cast<GenericInstanceMeshData&>(mesh);
-      const std::vector<uint16_t> objIds =
+      std::vector<uint16_t> objIds =
           instMesh.getObjectIdsBufferObjectCPU();
       return objIds;
 
