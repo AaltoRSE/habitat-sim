@@ -308,7 +308,7 @@ class ResourceManager {
   }
 
   /**
-   * @brief Return a vector of what I believe are the surface indexes for a specific mesh in the scene.
+   * @brief Return a vector of the surface indexes for a specific mesh in the scene.
    */
   std::vector<uint32_t> getSurfIndexes(int id) {
     const std::vector<uint32_t> surfIndexes =
